@@ -4,7 +4,6 @@ public class Program
 {
     static bool Exit = false;
     static int Balance = 10000;
-    static int[] Accounts = new int[100000];
     public static void Main(string[] args)
     {
         while (!Exit)
@@ -26,7 +25,7 @@ public class Program
         int option = -1;
         try
         {
-            option = int.Parse(Console.ReadLine());
+            option = Str2Int(Console.ReadLine());
             Console.WriteLine("\n");
         }
         catch (FormatException)
@@ -62,7 +61,7 @@ public class Program
     public static void Withdraw()
     {
         Console.WriteLine("> Please enter the amount you want to withdraw: ");
-        int Amount = int.Parse(Console.ReadLine());
+        int Amount = Str2Int(Console.ReadLine());
 
         if (ValidAmount(Amount))
         {
@@ -77,7 +76,7 @@ public class Program
     public static void Deposit()
     {
         Console.WriteLine("> Please enter the amount you want to deposit: ");
-        int Amount = int.Parse(Console.ReadLine());
+        int Amount = Str2Int(Console.ReadLine());
         if (ValidAmount(Amount))
         {
             Balance += Amount;
@@ -92,11 +91,11 @@ public class Program
     public static void Transfer()
     {
         Console.WriteLine("> Please enter the account you want to transfer: ");
-        int account = int.Parse(Console.ReadLine());
+        int account = Str2Int(Console.ReadLine());
         if (ValidAccount(account))
         {
             Console.WriteLine("> Please enter the amount you want to transfer: ");
-            int Amount = int.Parse(Console.ReadLine());
+            int Amount = Str2Int(Console.ReadLine());
 
             if (ValidAmount(Amount))
             {
@@ -143,6 +142,18 @@ public class Program
         else
         {
             return true;
+        }
+    }
+    public static int Str2Int(string str)
+    {
+        try
+        {
+            return int.Parse(str);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("> Invalid input. Please enter a valid number.");
+            return -1;
         }
     }
 }
