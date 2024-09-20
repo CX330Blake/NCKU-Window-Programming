@@ -15,8 +15,8 @@ public class Program
     public static void Menu()
     {
         Console.WriteLine("\n==== MENU ====");
-        Console.WriteLine("[0] View balance    [1] Withdraw");
-        Console.WriteLine("");
+        Console.WriteLine("[0] View balance");
+        Console.WriteLine("[1] Withdraw");
         Console.WriteLine("[2] Deposit");
         Console.WriteLine("[3] Transfer");
         Console.WriteLine("[8] Exit");
