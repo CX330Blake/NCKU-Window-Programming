@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\HW1-2\\HW1-2.csproj",
+      "projectUniqueName": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\HW1-2.csproj",
       "projectName": "HW1-2",
-      "projectPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\HW1-2\\HW1-2.csproj",
+      "projectPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\HW1-2.csproj",
       "packagesPath": "C:\\Users\\陳子雋\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\HW1-2\\obj\\",
+      "outputPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\陳子雋\\AppData\\Roaming\\NuGet\\NuGet.Config"

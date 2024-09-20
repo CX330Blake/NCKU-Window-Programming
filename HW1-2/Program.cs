@@ -4,6 +4,7 @@ public class Program
 {
     static bool Exit = false;
     static int Balance = 10000;
+    static int[] Accounts = new int[100000];
     public static void Main(string[] args)
     {
         while (!Exit)
