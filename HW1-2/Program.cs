@@ -4,10 +4,14 @@ public class Program
 {
     static bool Exit = false;
     static bool Login = false;
-    static int Balance = 10000;
+    static int CurrentAccountIndex = 0; // Account num - 10000
     static int AccountCount = 0;
     static int[] RegisteredAccounts = new int[90000]; // 99999 - 10000 + 1
-    static int[] History = new int[1];
+    static int[] AccountBalances = Enumerable.Repeat(10000, 90000).ToArray();
+    static int Balance = AccountBalances[CurrentAccountIndex];
+    static int TotalDonation = 0;
+    static int LovePoints = 0;
+    static List<int> History = new List<int>();
 
     public static void Main(string[] args)
     {
@@ -21,6 +25,7 @@ public class Program
                 if (Register(Account))
                 {
                     Login = true;
+                    CurrentAccountIndex = Account - 10000;
                 }
             }
             Menu();
@@ -35,6 +40,7 @@ public class Program
         Console.WriteLine("[2] Deposit");
         Console.WriteLine("[3] Transfer");
         Console.WriteLine("[4] Donate");
+        Console.WriteLine("[5] Trade history");
         Console.WriteLine("[8] Exit");
         Console.Write("> Enter your option: ");
 
@@ -85,6 +91,7 @@ public class Program
     public static void ViewBalance() { Console.WriteLine("> Your balance is " + Balance); }
     public static void Withdraw()
     {
+        History.Add(1);
         Console.WriteLine("> Please enter the amount you want to withdraw: ");
         int Amount = Str2Int(Console.ReadLine());
 
@@ -92,20 +99,25 @@ public class Program
         {
             Balance -= Amount;
             Console.WriteLine("> Withdraw successful. Your new balance is: " + Balance);
+            History.Add(Balance);
         }
         else
         {
             return;
         }
+
+
     }
     public static void Deposit()
     {
+        History.Add(2);
         Console.WriteLine("> Please enter the amount you want to deposit: ");
         int Amount = Str2Int(Console.ReadLine());
         if (ValidAmount(Amount))
         {
             Balance += Amount;
             Console.WriteLine("> Deposit successful. Your new balance is: " + Balance);
+            History.Add(Balance);
         }
         else
         {
@@ -115,6 +127,7 @@ public class Program
     }
     public static void Transfer()
     {
+        History.Add(3);
         Console.WriteLine("> Please enter the account you want to transfer: ");
         int account = Str2Int(Console.ReadLine());
         if (ValidAccount(account))
@@ -131,7 +144,7 @@ public class Program
                 {
                     Balance -= Total;
                     Console.WriteLine("> Transfer successful. Your new balance is: " + Balance);
-
+                    History.Add(Balance);
                 }
                 else
                 {
@@ -146,8 +159,34 @@ public class Program
 
     }
 
-    public static void Donate() { }
-    public static void TradeHistory() { }
+    public static void Donate()
+    {
+        History.Add(4);
+        Console.WriteLine("> Please enter the amount you want to donate: ");
+        int Amount = Str2Int(Console.ReadLine());
+        if (ValidAmount(Amount))
+        {
+            TotalDonation += Amount;
+            Balance -= Amount;
+            Console.WriteLine("> Donation successful. Your new balance is: " + Balance);
+            LovePoints += TotalDonation / 1000;
+            TotalDonation = TotalDonation % 1000;
+            Console.WriteLine("> You have " + LovePoints + " love points now.");
+            History.Add(Balance);
+        }
+        else
+        {
+            return;
+        }
+    }
+    public static void TradeHistory()
+    {
+        Console.WriteLine("> Your trade history:");
+        for (int i = 0; i < History.Count; i += 2)
+        {
+            Console.WriteLine(History[i] + " - " + History[i + 1]);
+        }
+    }
     public static bool ValidAmount(int Amount)
     {
         if (0 > Amount || Amount > 100000 || Amount > Balance)
