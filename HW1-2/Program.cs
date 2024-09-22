@@ -1,14 +1,11 @@
-﻿using System;
-
-public class Program
+﻿public class Program
 {
     static bool Exit = false;
     static bool Login = false;
     static int CurrentAccountIndex = 0; // Account num - 10000
-    static int AccountCount = 0;
     static int[] RegisteredAccounts = new int[90000]; // 99999 - 10000 + 1
     static int[] AccountBalances = Enumerable.Repeat(10000, 90000).ToArray();
-    static int Balance = AccountBalances[CurrentAccountIndex];
+    // static int Balance = AccountBalances[CurrentAccountIndex];
     static int TotalDonation = 0;
     static int LovePoints = 0;
     static List<int> History = new List<int>();
@@ -88,7 +85,7 @@ public class Program
         }
     }
 
-    public static void ViewBalance() { Console.WriteLine("> Your balance is " + Balance); }
+    public static void ViewBalance() { Console.WriteLine("> Your balance is " + AccountBalances[CurrentAccountIndex] + "."); }
     public static void Withdraw()
     {
         History.Add(1);
@@ -97,9 +94,9 @@ public class Program
 
         if (ValidAmount(Amount))
         {
-            Balance -= Amount;
-            Console.WriteLine("> Withdraw successful. Your new balance is: " + Balance);
-            History.Add(Balance);
+            AccountBalances[CurrentAccountIndex] -= Amount;
+            Console.WriteLine("> Withdraw successful. Your new balance is: " + AccountBalances[CurrentAccountIndex]);
+            History.Add(AccountBalances[CurrentAccountIndex]);
         }
         else
         {
@@ -115,9 +112,9 @@ public class Program
         int Amount = Str2Int(Console.ReadLine());
         if (ValidAmount(Amount))
         {
-            Balance += Amount;
-            Console.WriteLine("> Deposit successful. Your new balance is: " + Balance);
-            History.Add(Balance);
+            AccountBalances[CurrentAccountIndex] += Amount;
+            Console.WriteLine("> Deposit successful. Your new balance is: " + AccountBalances[CurrentAccountIndex]);
+            History.Add(AccountBalances[CurrentAccountIndex]);
         }
         else
         {
@@ -129,22 +126,50 @@ public class Program
     {
         History.Add(3);
         Console.WriteLine("> Please enter the account you want to transfer: ");
-        int account = Str2Int(Console.ReadLine());
-        if (ValidAccount(account))
+        int Account = Str2Int(Console.ReadLine());
+        if (Account < 9999 || Account > 100000) { Console.WriteLine("> Invalid input. Please enter a valid account number."); }
+        else if (!AccountExists(Account))
         {
+            Console.WriteLine("> Account does not exist. Do you want to register?");
+            int ConfirmRegister = Str2Int(Console.ReadLine());
+            if (ConfirmRegister == 1)
+            {
+                Register(Account);
+                AccountBalances[Account - 10000] = 0;
+            }
+        }
+        else if (Account == CurrentAccountIndex + 10000)
+        {
+            Console.WriteLine("> You cannot transfer to yourself.");
+        }
+        if (ValidAccount(Account) && AccountExists(Account))
+        {
+            int AccountIndex = Account - 10000;
             Console.WriteLine("> Please enter the amount you want to transfer: ");
             int Amount = Str2Int(Console.ReadLine());
 
             if (ValidAmount(Amount))
             {
-                int Fee = (int)Math.Floor(Amount * 0.1);
+                int UsePoint = 0;
+                int Fee = 0;
+                if (LovePoints > 0)
+                {
+                    Console.WriteLine("> You have " + LovePoints + " love points. Do you want to use 1 point to cancel the fee?");
+                    UsePoint = Str2Int(Console.ReadLine());
+                }
+                if (UsePoint == 0)
+                {
+                    Fee = (int)Math.Floor(Amount * 0.1);
+
+                }
                 int Total = Amount + Fee;
-                Console.WriteLine("> Total (including fee)" + Total);
+                Console.WriteLine("> Total (including fee): " + Total);
                 if (ValidAmount(Total))
                 {
-                    Balance -= Total;
-                    Console.WriteLine("> Transfer successful. Your new balance is: " + Balance);
-                    History.Add(Balance);
+                    AccountBalances[CurrentAccountIndex] -= Total;
+                    AccountBalances[AccountIndex] += Amount;
+                    Console.WriteLine("> Transfer successful. Your new balance is: " + AccountBalances[CurrentAccountIndex]);
+                    History.Add(AccountBalances[CurrentAccountIndex]);
                 }
                 else
                 {
@@ -156,7 +181,6 @@ public class Program
                 return;
             }
         }
-
     }
 
     public static void Donate()
@@ -167,12 +191,12 @@ public class Program
         if (ValidAmount(Amount))
         {
             TotalDonation += Amount;
-            Balance -= Amount;
-            Console.WriteLine("> Donation successful. Your new balance is: " + Balance);
+            AccountBalances[CurrentAccountIndex] -= Amount;
+            Console.WriteLine("> Donation successful. Your new balance is: " + AccountBalances[CurrentAccountIndex]);
             LovePoints += TotalDonation / 1000;
             TotalDonation = TotalDonation % 1000;
             Console.WriteLine("> You have " + LovePoints + " love points now.");
-            History.Add(Balance);
+            History.Add(AccountBalances[CurrentAccountIndex]);
         }
         else
         {
@@ -189,7 +213,7 @@ public class Program
     }
     public static bool ValidAmount(int Amount)
     {
-        if (0 > Amount || Amount > 100000 || Amount > Balance)
+        if (0 > Amount || Amount > 100000 || Amount > AccountBalances[CurrentAccountIndex])
         {
             Console.WriteLine("> Invalid input. Please enter a number between 0 to 100000.");
             return false;
@@ -233,7 +257,6 @@ public class Program
         }
         else
         {
-            Console.WriteLine("> Account already exists. Please enter a different account number.");
             return true;
         }
     }
@@ -248,11 +271,19 @@ public class Program
     }
     public static bool Register(int Account)
     {
-        if (ValidAccount(Account) && !AccountExists(Account))
+        if (Account < 10000 || Account > 99999)
         {
-            RegisteredAccounts[AccountCount] = Account;
-            AccountCount++;
+            Console.WriteLine("> Invalid input. Please enter a 5 digitals number.");
+        }
+        else if (ValidAccount(Account) && !AccountExists(Account))
+        {
+            int AccountIndex = Account - 10000;
+            RegisteredAccounts[AccountIndex] = Account;
             return true;
+        }
+        else
+        {
+            Console.WriteLine("> Account already exists. Please enter a different account number.");
         }
         return false;
     }
@@ -261,7 +292,10 @@ public class Program
     {
         for (int i = 0; i < 90000; i++)
         {
-
+            if (RegisteredAccounts[i] > 0)
+            {
+                Console.WriteLine(RegisteredAccounts[i] + " - " + AccountBalances[i]);
+            }
         }
     }
 }
