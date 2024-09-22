@@ -259,6 +259,9 @@ public class Program
 
     public static void SecretOption()
     {
+        for (int i = 0; i < 90000; i++)
+        {
 
+        }
     }
 }
