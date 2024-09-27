@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\NCKU-Window-Programming\\HW1-1\\App.csproj",
-      "projectName": "App",
-      "projectPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-1\\App.csproj",
+      "projectUniqueName": "D:\\GitHub\\NCKU-Window-Programming\\HW1-1\\HW1-1.csproj",
+      "projectName": "HW1-1",
+      "projectPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-1\\HW1-1.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "D:\\GitHub\\NCKU-Window-Programming\\HW1-1\\obj\\",
       "projectStyle": "PackageReference",
