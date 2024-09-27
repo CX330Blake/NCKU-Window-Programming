@@ -1,4 +1,6 @@
-﻿public class HW2_1
+﻿using System.Linq;
+
+public class HW2_1
 {
     public static bool close = false;
     public static bool alert = false;
@@ -142,7 +144,6 @@
     }
     public static void CheckStock()
     {
-
         if (alert)
         {
             Console.WriteLine("有商品的庫存量不足！！");
@@ -154,13 +155,23 @@
                 Console.WriteLine(GoodsName[i] + ": " + GoodsRemain[i]);
             }
         }
-
     }
     public static void CheckIncome()
     {
         Console.WriteLine("總收入為: " + Income);
     }
-    public static void Rank() { }
+    public static void Rank()
+    {
+        int[] temp = (int[])GoodsSelled.Clone();
+        for (int i = 0; i < NumOfGoods; i++)
+        {
+            int Rank = i + 1;
+            int MaxSelled = temp.Max();
+            int idx = Array.IndexOf(temp, MaxSelled);
+            Console.WriteLine("第 " + Rank + " 名" + GoodsName[idx] + " 共售出 " + MaxSelled + " 件");
+            temp[idx] = -1;
+        }
+    }
     public static void CloseShop()
     {
         close = true;
