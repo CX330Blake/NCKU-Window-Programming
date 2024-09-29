@@ -1,0 +1,15 @@
+D:\GitHub\NCKU-Window-Programming\HW2-2\bin\Debug\net8.0\HW2-2.exe
+D:\GitHub\NCKU-Window-Programming\HW2-2\bin\Debug\net8.0\HW2-2.deps.json
+D:\GitHub\NCKU-Window-Programming\HW2-2\bin\Debug\net8.0\HW2-2.runtimeconfig.json
+D:\GitHub\NCKU-Window-Programming\HW2-2\bin\Debug\net8.0\HW2-2.dll
+D:\GitHub\NCKU-Window-Programming\HW2-2\bin\Debug\net8.0\HW2-2.pdb
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.AssemblyInfoInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.AssemblyInfo.cs
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.sourcelink.json
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.dll
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\refint\HW2-2.dll
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.pdb
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\HW2-2.genruntimeconfig.cache
+D:\GitHub\NCKU-Window-Programming\HW2-2\obj\Debug\net8.0\ref\HW2-2.dll
