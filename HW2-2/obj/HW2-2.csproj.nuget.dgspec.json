@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\GitHub\\NCKU-Window-Programming\\HW2-2\\HW2-2.csproj",
         "projectName": "HW2-2",
         "projectPath": "D:\\GitHub\\NCKU-Window-Programming\\HW2-2\\HW2-2.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\陳子雋\\.nuget\\packages\\",
         "outputPath": "D:\\GitHub\\NCKU-Window-Programming\\HW2-2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\陳子雋\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

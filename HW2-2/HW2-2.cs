@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
+
 
 public class HW2_1
 {
@@ -71,28 +73,105 @@ public class HW2_1
     }
     public static void OpenShop()
     {
-        Console.Write("請輸入今日總共有幾種商品要販售: ");
-        NumOfGoods = int.Parse(Console.ReadLine());
+        bool InputSuccess = false;
+        while (!InputSuccess)
+        {
+            Console.Write("請輸入今日總共有幾種商品要販售: ");
+            try
+            {
+                NumOfGoods = int.Parse(Console.ReadLine());
+                InputSuccess = true;
+            }
+            catch
+            {
+                Console.WriteLine("請輸入合法的數字。");
+            }
+        }
+        InputSuccess = false;
+
+
         GoodsRemain = new int[NumOfGoods];
         GoodsName = new string[NumOfGoods];
         GoodsPrice = new int[NumOfGoods];
         GoodsSelled = new int[NumOfGoods];
-        Console.Write("請依序輸入每一種商品的名稱: ");
 
-        string input = Console.ReadLine();
-        GoodsName = input.Split(' ');
-        Console.Write("接下來，請你依序輸入每一個商品的價格: ");
-        input = Console.ReadLine();
-        GoodsPrice = input.Split(' ').Select(int.Parse).ToArray();
+        while (!InputSuccess)
+        {
+            Console.Write("請依序輸入每一種商品的名稱，以空格隔開: ");
+            try
+            {
+                string InputGoodsName = Console.ReadLine();
+                GoodsName = InputGoodsName.Split(' ');
+                if (GoodsName.Length != NumOfGoods)
+                {
+                    Console.WriteLine("商品總數與先前輸入的不符，請重新輸入。");
+                    continue;
+                }
+                else
+                {
+                    InputSuccess = true;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("請輸入合法的字串，並用空格隔開。");
+            }
+
+        }
+        InputSuccess = false;
+
+        while (!InputSuccess)
+        {
+            Console.Write("接下來，請你依序輸入每一個商品的價格: ");
+            try
+            {
+                string InputCosts = Console.ReadLine();
+                GoodsPrice = InputCosts.Split(' ').Select(int.Parse).ToArray();
+                if (GoodsPrice.Length != NumOfGoods)
+                {
+                    Console.WriteLine("商品總數與先前輸入的不符，請重新輸入。");
+                    continue;
+                }
+                else
+                {
+                    InputSuccess = true;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("請輸入合法的數字，並用空格隔開。");
+            }
+
+        }
+        InputSuccess = false;
         Console.Write("\n輸入完成! 每一種商品的價格依序為: \n");
         for (int i = 0; i < NumOfGoods; i++)
         {
             Console.WriteLine(GoodsName[i] + " : " + GoodsPrice[i]);
         }
-        Console.Write("\n最後，請你依序輸入每一個商品目前的庫存數量: ");
+
         GoodsRemain = new int[NumOfGoods];
-        input = Console.ReadLine();
-        GoodsRemain = input.Split(' ').Select(int.Parse).ToArray();
+
+        while (!InputSuccess)
+        {
+            Console.Write("\n最後，請你依序輸入每一個商品目前的庫存數量: ");
+            try
+            {
+                String InputCount = Console.ReadLine();
+                GoodsRemain = InputCount.Split(' ').Select(int.Parse).ToArray();
+                if (GoodsRemain.Length != NumOfGoods)
+                {
+                    Console.WriteLine("商品總數與先前輸入的不符，請重新輸入。");
+                    continue;
+                }
+                else { InputSuccess = true; }
+            }
+            catch
+            {
+                Console.WriteLine("請輸入合法的數字，並用空格隔開。");
+            }
+        }
+
         Console.Write("\n輸入完成! 每一種商品的庫存數量依序為: \n");
         for (int i = 0; i < NumOfGoods; i++)
         {
@@ -191,9 +270,23 @@ public class HW2_1
                 Income += Cost;
             }
         }
-        Console.Write("請輸入您的姓名: ");
-        string Name = Console.ReadLine();
-        AddCustomerOrder(Name, Cost);
+        bool InputNameSuccess = false;
+        string Name = "";
+        while (!InputNameSuccess)
+        {
+            Console.Write("請輸入您的姓名: ");
+            Name = Console.ReadLine();
+            // 判斷姓名是否為英文字符及空格
+            if (Regex.IsMatch(Name, @"^[a-zA-Z\s]+$"))
+            {
+                AddCustomerOrder(Name, Cost);
+                InputNameSuccess = true;
+            }
+            else
+            {
+                Console.WriteLine("姓名只能包含英文字符及空格。");
+            }
+        }
     }
     public static void CheckStock()
     {
