@@ -189,12 +189,13 @@ public class HW2_1
         bool OrderSuccess = false;
         int[] NumToBuy = new int[NumOfGoods];
         int Cost = 0;
+        bool FirstWrong = true;
         while (!OrderSuccess)
         {
             Console.Write("請依序輸入此訂單每一種類的商品各需要買幾個: ");
             NumToBuy = new int[NumOfGoods];
             NumToBuy = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            if (NumToBuy[0] == -1)
+            if (NumToBuy[0] == -1 && !FirstWrong)
             {
                 Console.WriteLine("訂單取消\n");
                 return;
@@ -203,6 +204,12 @@ public class HW2_1
             if (NumToBuy.Length != NumOfGoods)
             {
                 Console.WriteLine("商品數量不正確，請重新輸入 (或輸入 -1 直接取消此筆訂單)");
+                FirstWrong = false;
+            }
+            else if (NumToBuy.Any(x => x < 0))
+            {
+                Console.WriteLine("商品數量不能為負值，請重新輸入 (或輸入 -1 直接取消此筆訂單)");
+                FirstWrong = false;
             }
             else
             {
@@ -246,12 +253,14 @@ public class HW2_1
             else if (Payment < 0)
             {
                 Console.Write("付款金額不能為負值，請重新輸入 (或輸入 -1 直接取消此筆訂單): ");
+                FirstWrong = false;
                 continue;
             }
 
             if (Payment < Cost)
             {
                 Console.Write("\n付款金額不足，請再輸入一次 (或輸入 -1 直接取消此筆訂單): ");
+                FirstWrong = false;
             }
             else
             {
