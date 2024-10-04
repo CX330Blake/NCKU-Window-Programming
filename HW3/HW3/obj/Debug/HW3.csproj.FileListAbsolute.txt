@@ -1,0 +1,10 @@
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.exe.config
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.exe
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.pdb
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Form1.resources
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Properties.Resources.resources
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.GenerateResource.cache
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.exe
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.pdb
