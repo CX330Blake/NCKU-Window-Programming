@@ -10,26 +10,17 @@ using System.Windows.Forms;
 
 namespace HW3
 {
-    public partial class Form1 : Form
+    public partial class BaseForm : Form
     {
-        public Form1()
+        public BaseForm()
         {
             InitializeComponent();
+            
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void BaseForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            this.Font = new Font("Arial", 12);
         }
     }
 }
