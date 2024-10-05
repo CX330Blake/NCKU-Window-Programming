@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|d:\\github\\ncku-window-programming\\hw3\\hw3\\addordercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|solutionrelative:hw3\\addordercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|D:\\GitHub\\NCKU-Window-Programming\\HW3\\hw3\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|solutionrelative:hw3\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|D:\\GitHub\\NCKU-Window-Programming\\HW3\\hw3\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|solutionrelative:hw3\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|d:\\github\\ncku-window-programming\\hw3\\hw3\\addordercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|solutionrelative:hw3\\addordercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12DEC6B6-ECCE-4020-B226-5D663109D63E}|HW3\\HW3.csproj|d:\\github\\ncku-window-programming\\hw3\\hw3\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,20 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AddOrderControl.cs",
               "DocumentMoniker": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\AddOrderControl.cs",
               "RelativeDocumentMoniker": "HW3\\AddOrderControl.cs",
               "ToolTip": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\AddOrderControl.cs",
               "RelativeToolTip": "HW3\\AddOrderControl.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAIwEAAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwDIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-04T13:03:17.024Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Dashboard.cs [Design]",
               "DocumentMoniker": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\Dashboard.cs",
               "RelativeDocumentMoniker": "HW3\\Dashboard.cs",
@@ -87,13 +87,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Login.cs",
               "DocumentMoniker": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\Login.cs",
               "RelativeDocumentMoniker": "HW3\\Login.cs",
               "ToolTip": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\Login.cs",
               "RelativeToolTip": "HW3\\Login.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwEgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAkwEkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-04T07:49:19.618Z",
               "EditorCaption": ""
