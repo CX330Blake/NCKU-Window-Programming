@@ -32,8 +32,8 @@
             this.orderList = new System.Windows.Forms.ListBox();
             this.addOrder = new System.Windows.Forms.Button();
             this.listOrder = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // title
@@ -44,7 +44,7 @@
             this.title.Margin = new System.Windows.Forms.Padding(2);
             this.title.Name = "title";
             this.title.ReadOnly = true;
-            this.title.Size = new System.Drawing.Size(350, 26);
+            this.title.Size = new System.Drawing.Size(604, 26);
             this.title.TabIndex = 0;
             this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.title.TextChanged += new System.EventHandler(this.title_TextChanged);
@@ -52,13 +52,14 @@
             // orderList
             // 
             this.orderList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.orderList.Font = new System.Drawing.Font("Arial", 12F);
             this.orderList.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.orderList.FormattingEnabled = true;
             this.orderList.ItemHeight = 18;
             this.orderList.Location = new System.Drawing.Point(118, 92);
             this.orderList.Margin = new System.Windows.Forms.Padding(2);
             this.orderList.Name = "orderList";
-            this.orderList.Size = new System.Drawing.Size(350, 238);
+            this.orderList.Size = new System.Drawing.Size(604, 400);
             this.orderList.TabIndex = 1;
             this.orderList.SelectedIndexChanged += new System.EventHandler(this.list_SelectedIndexChanged);
             // 
@@ -88,38 +89,39 @@
             this.listOrder.UseVisualStyleBackColor = false;
             this.listOrder.Click += new System.EventHandler(this.listOrder_Click);
             // 
-            // button1
+            // registerButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(26, 220);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 47);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "新增帳號資訊";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.registerButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.registerButton.Location = new System.Drawing.Point(26, 220);
+            this.registerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(75, 47);
+            this.registerButton.TabIndex = 4;
+            this.registerButton.Text = "新增帳號資訊";
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // logoutButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(26, 283);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 47);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "登出";
-            this.button2.UseVisualStyleBackColor = false;
+            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
+            this.logoutButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.logoutButton.Location = new System.Drawing.Point(26, 283);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(2);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 47);
+            this.logoutButton.TabIndex = 5;
+            this.logoutButton.Text = "登出";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 363);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.listOrder);
             this.Controls.Add(this.addOrder);
             this.Controls.Add(this.orderList);
@@ -140,7 +142,7 @@
         private System.Windows.Forms.ListBox orderList;
         private System.Windows.Forms.Button addOrder;
         private System.Windows.Forms.Button listOrder;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

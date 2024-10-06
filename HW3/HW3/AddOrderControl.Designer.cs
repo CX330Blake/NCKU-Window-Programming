@@ -39,12 +39,16 @@
             // 
             // title
             // 
+            this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
             this.title.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.title.Location = new System.Drawing.Point(67, 35);
+            this.title.Location = new System.Drawing.Point(40, 35);
             this.title.Margin = new System.Windows.Forms.Padding(2);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(391, 22);
+            this.title.ReadOnly = true;
+            this.title.Size = new System.Drawing.Size(386, 22);
             this.title.TabIndex = 0;
             this.title.Text = "輸入完數量後，點選對應的商品按鈕，並點擊送出。";
             this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -55,7 +59,7 @@
             this.penguinButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
             this.penguinButton.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.penguinButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.penguinButton.Location = new System.Drawing.Point(67, 141);
+            this.penguinButton.Location = new System.Drawing.Point(40, 141);
             this.penguinButton.Margin = new System.Windows.Forms.Padding(2);
             this.penguinButton.Name = "penguinButton";
             this.penguinButton.Size = new System.Drawing.Size(77, 54);
@@ -69,7 +73,7 @@
             this.porkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
             this.porkButton.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.porkButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.porkButton.Location = new System.Drawing.Point(226, 141);
+            this.porkButton.Location = new System.Drawing.Point(199, 141);
             this.porkButton.Margin = new System.Windows.Forms.Padding(2);
             this.porkButton.Name = "porkButton";
             this.porkButton.Size = new System.Drawing.Size(77, 54);
@@ -83,7 +87,7 @@
             this.shrimpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
             this.shrimpButton.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.shrimpButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.shrimpButton.Location = new System.Drawing.Point(381, 141);
+            this.shrimpButton.Location = new System.Drawing.Point(354, 141);
             this.shrimpButton.Margin = new System.Windows.Forms.Padding(2);
             this.shrimpButton.Name = "shrimpButton";
             this.shrimpButton.Size = new System.Drawing.Size(77, 54);
@@ -97,7 +101,7 @@
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(71)))), ((int)(((byte)(90)))));
             this.submitButton.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.submitButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.submitButton.Location = new System.Drawing.Point(204, 211);
+            this.submitButton.Location = new System.Drawing.Point(177, 211);
             this.submitButton.Margin = new System.Windows.Forms.Padding(2);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(129, 54);
@@ -108,7 +112,7 @@
             // 
             // countTextBox
             // 
-            this.countTextBox.Location = new System.Drawing.Point(254, 87);
+            this.countTextBox.Location = new System.Drawing.Point(227, 87);
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(100, 22);
             this.countTextBox.TabIndex = 5;
@@ -118,7 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(183, 90);
+            this.label1.Location = new System.Drawing.Point(156, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 6;
@@ -140,7 +144,8 @@
             this.Controls.Add(this.title);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddOrderControl";
-            this.Size = new System.Drawing.Size(516, 402);
+            this.Size = new System.Drawing.Size(488, 345);
+            this.Load += new System.EventHandler(this.AddOrderControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

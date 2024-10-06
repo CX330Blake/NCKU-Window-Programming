@@ -11,3 +11,4 @@ D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.GenerateResource.
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.CoreCompileInputs.cache
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.exe
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.pdb
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Register.resources

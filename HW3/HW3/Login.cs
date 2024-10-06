@@ -12,25 +12,37 @@ namespace HW3
 {
     public partial class Login : BaseForm
     {
-        public static Dictionary<string, string> userAuth = new Dictionary<string, string>();   
+        public static Dictionary<string, string> userAuth = new Dictionary<string, string>();
 
-                
+        public static Dictionary<int, Tuple<int, string, string>> orderHistory = new Dictionary<int, Tuple<int, string, string>>();
+        public static int orderID = 1000;
         public Login()
         {
             InitializeComponent();
-            userAuth.Add("admin", "admin");
+            if (!userAuth.ContainsKey("admin")) userAuth.Add("admin", "admin");
+            this.Size = new Size(800, 600);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
-
+        public void autoLogin()
+        {
+            clearButton(openShopButton);
+            title.Text = "歡迎光臨！請登入！";
+            loginButton.Visible = true;
+            usernameInput.Visible = true;
+            usernameLabel.Visible = true;
+            passwordInput.Visible = true;
+            passwordLabel.Visible = true;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             clearButton(openShopButton);

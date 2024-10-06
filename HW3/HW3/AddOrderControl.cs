@@ -17,12 +17,12 @@ namespace HW3
         string lastSelectItem = "";
         Dictionary<string, Button> name2But = new Dictionary<string, Button>();
         Dictionary<Button, string> but2Name = new Dictionary<Button, string>();
-        public Dictionary<int, Tuple<int, string>> orderHistory = new Dictionary<int, Tuple<int, string>>();
-        public int orderID = 1000;
+        Dictionary<int, Tuple<int, string, string>> orderHistory = Login.orderHistory;
+        
         private int count = 0;
 
 
-        public AddOrderControl(string name)
+        public AddOrderControl(string name, Form form)
         {
             InitializeComponent();
             username = name;
@@ -32,6 +32,9 @@ namespace HW3
             but2Name.Add(penguinButton, "企鵝");
             but2Name.Add(porkButton, "炸豬排");
             but2Name.Add(shrimpButton, "炸蝦");
+            this.Size = new Size(form.ClientSize.Width, form.ClientSize.Height);
+            this.MinimumSize = new Size(0, 0);  // 移除最小大小限制
+            this.MaximumSize = new Size(form.ClientSize.Width, form.ClientSize.Height);  // 設置最大大小
         }
 
         public void Reset()
@@ -111,8 +114,8 @@ namespace HW3
             {
                 name = "炸蝦";
             }
-            orderHistory.Add(orderID, new Tuple<int, string>(count, name));
-            orderID++;
+            orderHistory.Add(Login.orderID, new Tuple<int, string, string>(count, name, username));
+            Login.orderID++;
             //foreach (Control c in this.Controls) c.Hide();
             foreach (Control c in Parent.Controls) c.Show();
             this.Visible = false;
@@ -130,6 +133,11 @@ namespace HW3
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddOrderControl_Load(object sender, EventArgs e)
         {
 
         }
