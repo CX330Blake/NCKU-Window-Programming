@@ -1,6 +1,8 @@
-D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.exe
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.exe.config
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.exe
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.pdb
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.AddOrderControl.resources
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.BaseForm.resources
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Dashboard.resources
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Login.resources
@@ -9,5 +11,4 @@ D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.GenerateResource.
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.csproj.CoreCompileInputs.cache
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.exe
 D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.pdb
-D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.AddOrderControl.resources
-D:\GitHub\NCKU-Window-Programming\HW3\HW3\bin\Debug\HW3.pdb
+D:\GitHub\NCKU-Window-Programming\HW3\HW3\obj\Debug\HW3.Register.resources
