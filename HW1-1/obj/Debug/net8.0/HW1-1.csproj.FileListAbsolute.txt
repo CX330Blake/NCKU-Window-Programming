@@ -1,0 +1,15 @@
+D:\GitHub\NCKU-Window-Programming\HW1-1\bin\Debug\net8.0\HW1-1.exe
+D:\GitHub\NCKU-Window-Programming\HW1-1\bin\Debug\net8.0\HW1-1.deps.json
+D:\GitHub\NCKU-Window-Programming\HW1-1\bin\Debug\net8.0\HW1-1.runtimeconfig.json
+D:\GitHub\NCKU-Window-Programming\HW1-1\bin\Debug\net8.0\HW1-1.dll
+D:\GitHub\NCKU-Window-Programming\HW1-1\bin\Debug\net8.0\HW1-1.pdb
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.AssemblyInfoInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.AssemblyInfo.cs
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.sourcelink.json
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.dll
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\refint\HW1-1.dll
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.pdb
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\HW1-1.genruntimeconfig.cache
+D:\GitHub\NCKU-Window-Programming\HW1-1\obj\Debug\net8.0\ref\HW1-1.dll
