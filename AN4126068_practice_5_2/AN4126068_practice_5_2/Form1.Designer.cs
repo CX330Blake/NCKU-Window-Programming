@@ -31,6 +31,9 @@
             this.startPanel = new System.Windows.Forms.Panel();
             this.chooseCharacterPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.MelanthaLabel = new System.Windows.Forms.Label();
+            this.MyrtleLabel = new System.Windows.Forms.Label();
+            this.CardiganLabel = new System.Windows.Forms.Label();
             this.battleField = new System.Windows.Forms.TableLayoutPanel();
             this.fightButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -38,9 +41,8 @@
             this.addButton = new System.Windows.Forms.Button();
             this.characterListBox = new System.Windows.Forms.ListBox();
             this.startButton = new System.Windows.Forms.Button();
-            this.CardiganTextBox = new System.Windows.Forms.TextBox();
-            this.MyrtleTextBox = new System.Windows.Forms.TextBox();
-            this.MelanthaTextBox = new System.Windows.Forms.TextBox();
+            this.heart = new System.Windows.Forms.Label();
+            this.moneyLabel = new System.Windows.Forms.Label();
             this.startPanel.SuspendLayout();
             this.chooseCharacterPanel.SuspendLayout();
             this.gamePanel.SuspendLayout();
@@ -71,15 +73,47 @@
             // 
             // gamePanel
             // 
-            this.gamePanel.Controls.Add(this.MelanthaTextBox);
-            this.gamePanel.Controls.Add(this.MyrtleTextBox);
-            this.gamePanel.Controls.Add(this.CardiganTextBox);
+            this.gamePanel.Controls.Add(this.moneyLabel);
+            this.gamePanel.Controls.Add(this.heart);
+            this.gamePanel.Controls.Add(this.MelanthaLabel);
+            this.gamePanel.Controls.Add(this.MyrtleLabel);
+            this.gamePanel.Controls.Add(this.CardiganLabel);
             this.gamePanel.Controls.Add(this.battleField);
             this.gamePanel.Location = new System.Drawing.Point(0, 3);
             this.gamePanel.Name = "gamePanel";
             this.gamePanel.Size = new System.Drawing.Size(801, 451);
             this.gamePanel.TabIndex = 5;
             this.gamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gamePanel_Paint);
+            // 
+            // MelanthaLabel
+            // 
+            this.MelanthaLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.MelanthaLabel.Location = new System.Drawing.Point(703, 344);
+            this.MelanthaLabel.Name = "MelanthaLabel";
+            this.MelanthaLabel.Size = new System.Drawing.Size(50, 50);
+            this.MelanthaLabel.TabIndex = 6;
+            this.MelanthaLabel.Text = "Melantha";
+            this.MelanthaLabel.Visible = false;
+            // 
+            // MyrtleLabel
+            // 
+            this.MyrtleLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.MyrtleLabel.Location = new System.Drawing.Point(390, 344);
+            this.MyrtleLabel.Name = "MyrtleLabel";
+            this.MyrtleLabel.Size = new System.Drawing.Size(50, 50);
+            this.MyrtleLabel.TabIndex = 5;
+            this.MyrtleLabel.Text = "Myrtle";
+            this.MyrtleLabel.Visible = false;
+            // 
+            // CardiganLabel
+            // 
+            this.CardiganLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.CardiganLabel.Location = new System.Drawing.Point(50, 344);
+            this.CardiganLabel.Name = "CardiganLabel";
+            this.CardiganLabel.Size = new System.Drawing.Size(50, 50);
+            this.CardiganLabel.TabIndex = 4;
+            this.CardiganLabel.Text = "Cardigan";
+            this.CardiganLabel.Visible = false;
             // 
             // battleField
             // 
@@ -159,42 +193,25 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // CardiganTextBox
+            // heart
             // 
-            this.CardiganTextBox.Enabled = false;
-            this.CardiganTextBox.Font = new System.Drawing.Font("PMingLiU", 9F);
-            this.CardiganTextBox.HideSelection = false;
-            this.CardiganTextBox.Location = new System.Drawing.Point(53, 325);
-            this.CardiganTextBox.Multiline = true;
-            this.CardiganTextBox.Name = "CardiganTextBox";
-            this.CardiganTextBox.Size = new System.Drawing.Size(50, 50);
-            this.CardiganTextBox.TabIndex = 1;
-            this.CardiganTextBox.Text = "Cardigan";
-            this.CardiganTextBox.Visible = false;
+            this.heart.AutoSize = true;
+            this.heart.Location = new System.Drawing.Point(50, 304);
+            this.heart.Name = "heart";
+            this.heart.Size = new System.Drawing.Size(43, 18);
+            this.heart.TabIndex = 7;
+            this.heart.Text = "haert";
+            this.heart.Click += new System.EventHandler(this.label1_Click);
             // 
-            // MyrtleTextBox
+            // moneyLabel
             // 
-            this.MyrtleTextBox.Enabled = false;
-            this.MyrtleTextBox.HideSelection = false;
-            this.MyrtleTextBox.Location = new System.Drawing.Point(703, 325);
-            this.MyrtleTextBox.Multiline = true;
-            this.MyrtleTextBox.Name = "MyrtleTextBox";
-            this.MyrtleTextBox.Size = new System.Drawing.Size(50, 50);
-            this.MyrtleTextBox.TabIndex = 2;
-            this.MyrtleTextBox.Text = "Myrtle";
-            this.MyrtleTextBox.Visible = false;
-            // 
-            // MelanthaTextBox
-            // 
-            this.MelanthaTextBox.Enabled = false;
-            this.MelanthaTextBox.HideSelection = false;
-            this.MelanthaTextBox.Location = new System.Drawing.Point(390, 325);
-            this.MelanthaTextBox.Multiline = true;
-            this.MelanthaTextBox.Name = "MelanthaTextBox";
-            this.MelanthaTextBox.Size = new System.Drawing.Size(50, 50);
-            this.MelanthaTextBox.TabIndex = 3;
-            this.MelanthaTextBox.Text = "Melantha";
-            this.MelanthaTextBox.Visible = false;
+            this.moneyLabel.AutoSize = true;
+            this.moneyLabel.Location = new System.Drawing.Point(710, 304);
+            this.moneyLabel.Name = "moneyLabel";
+            this.moneyLabel.Size = new System.Drawing.Size(43, 18);
+            this.moneyLabel.TabIndex = 8;
+            this.moneyLabel.Text = "haert";
+            this.moneyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -224,9 +241,11 @@
         private System.Windows.Forms.Button fightButton;
         private System.Windows.Forms.Panel gamePanel;
         private System.Windows.Forms.TableLayoutPanel battleField;
-        private System.Windows.Forms.TextBox MelanthaTextBox;
-        private System.Windows.Forms.TextBox MyrtleTextBox;
-        private System.Windows.Forms.TextBox CardiganTextBox;
+        private System.Windows.Forms.Label MelanthaLabel;
+        private System.Windows.Forms.Label MyrtleLabel;
+        private System.Windows.Forms.Label CardiganLabel;
+        private System.Windows.Forms.Label heart;
+        private System.Windows.Forms.Label moneyLabel;
     }
 }
 
