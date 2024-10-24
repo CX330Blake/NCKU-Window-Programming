@@ -29,6 +29,11 @@ namespace AN4126068_practice_5_2
             gamePanel.Visible = false;
         }
 
+        public void updateInfo(string text)
+        {
+            infoLabel.Text = text;
+        }
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -232,9 +237,23 @@ namespace AN4126068_practice_5_2
 
             Label characterBox = null;
 
+            // 設置 PictureBox 在 battleField 中的位置
+            Point dropLocation = battleField.PointToClient(new Point(e.X, e.Y));
+
+            int column = dropLocation.X / (battleField.Width / battleField.ColumnCount);
+            int row = dropLocation.Y / (battleField.Height / battleField.RowCount);
+
+            Control existingControl = battleField.GetControlFromPosition(column, row);
+            if (existingControl != null)
+            {
+                MessageBox.Show("該位置已被佔用，無法放置角色。");
+                return;
+            }
+
+
             if (characterName == "Cardigan")
             {
-                characterBox = new Cardigan();  // 創建 Cardigan PictureBox
+                characterBox = new Cardigan(this);  // 創建 Cardigan PictureBox
                 if (game.money < Cardigan.cost)
                 {
                     return;
@@ -244,7 +263,7 @@ namespace AN4126068_practice_5_2
             }
             else if (characterName == "Myrtle")
             {
-                characterBox = new Myrtle(null);  // 創建 Myrtle PictureBox
+                characterBox = new Myrtle(game, this);  // 創建 Myrtle PictureBox
                 if (game.money < Myrtle.cost)
                 {
                     return;
@@ -254,7 +273,7 @@ namespace AN4126068_practice_5_2
             }
             else if (characterName == "Melantha")
             {
-                characterBox = new Melantha();  // 創建 Melantha PictureBox
+                characterBox = new Melantha(this);  // 創建 Melantha PictureBox
                 if (game.money < Melantha.cost)
                 {
                     return;
@@ -268,11 +287,7 @@ namespace AN4126068_practice_5_2
                 characterBox.Size = new Size(50, 50);  // 設置大小
                 characterBox.BackColor = Color.LightGray;  // 設置背景顏色
 
-                // 設置 PictureBox 在 battleField 中的位置
-                Point dropLocation = battleField.PointToClient(new Point(e.X, e.Y));
 
-                int column = dropLocation.X / (battleField.Width / battleField.ColumnCount);
-                int row = dropLocation.Y / (battleField.Height / battleField.RowCount);
 
                 if (column < battleField.ColumnCount && row < battleField.RowCount)
                 {
@@ -320,16 +335,23 @@ namespace AN4126068_practice_5_2
         {
 
         }
+
+        private void MyrtleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Game
     {
         public TableLayoutPanel bf;
         public TableLayoutPanel army;
+        public Opponent opponent;
+        public Form1 form;
         public const int maxHeart = 3;
         public int heart = 3;
-        public int money = 30;
-        public int enemyCount = 5;
+        public int money = 100;
+        public int enemyCount = 1;
 
 
         public static List<Control> obstacles = new List<Control>();
@@ -353,6 +375,12 @@ namespace AN4126068_practice_5_2
 
         public void opponent_attack(Opponent o)
         {
+
+            if (enemyCount <= 0)
+            {
+                end();
+                return;
+            }
             Label enemy = o.generateEnemy();
             Control parentContainer = bf.Parent;
 
@@ -369,7 +397,6 @@ namespace AN4126068_practice_5_2
             o.StartMovingEnemy(enemy);
         }
 
-
         public void end()
         {
             foreach (Control control in bf.Controls)
@@ -385,15 +412,13 @@ namespace AN4126068_practice_5_2
 
         public void start()
         {
-
-            Opponent opponent = new Opponent(bf, this);
+            this.opponent = new Opponent(bf, this);
             Player player = new Player();
 
             placeOnBF(bf, opponent, 1, 2);
             placeOnBF(bf, player, 11, 2);
 
             opponent_attack(opponent);
-            enemyCount--;
         }
 
 
@@ -402,6 +427,7 @@ namespace AN4126068_practice_5_2
     public class Cardigan : Label
     {
         public string name = "Cardigan";
+        private Form1 form;
         public int hp = 2130;
         public int maxHp = 2130;
         public int atk = 305;
@@ -411,7 +437,7 @@ namespace AN4126068_practice_5_2
         private Timer cdTimer;
 
 
-        public Cardigan()
+        public Cardigan(Form1 form)
         {
             this.AutoSize = false;
             this.Size = new Size(50, 50);
@@ -419,17 +445,41 @@ namespace AN4126068_practice_5_2
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.Font = new Font("Arial", 5);
             this.Click += Cardigan_Click;
+            this.MouseClick += Cardigan_MouseDown;
+            this.MouseHover += Cardigan_MouseHover;
+            this.MouseLeave += Cardigan_MouseLeave;
 
             // CD
-            this.Enabled = false;
+            this.Enabled = true;
             cdTimer = new Timer();
             cdTimer.Interval = 1000;  // 設定1秒觸發一次
             cdTimer.Tick += CdTimer_Tick;
             cdTimer.Start();  // 開始計時
+            this.form = form;
+        }
+
+        private void Cardigan_MouseLeave(object sender, EventArgs e)
+        {
+            form.updateInfo("");
+        }
+
+        private void Cardigan_MouseHover(object sender, EventArgs e)
+        {
+            form.updateInfo($"HP: {this.hp}, ATK: {this.atk}, DEF: {this.def}, Cost: {cost}, CD: {this.cd}");
+        }
+
+        private void Cardigan_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.Dispose();
+                form.CardiganBack();
+            }
         }
 
         private void Cardigan_Click(object sender, EventArgs e)
         {
+            if (this.BackColor != Color.Green) { return; }
             skill();
         }
 
@@ -451,12 +501,10 @@ namespace AN4126068_practice_5_2
             if (cd == 0)
             {
                 this.BackColor = Color.Green;
-                this.Enabled = true;
             }
             else
             {
                 this.BackColor = Color.LightGray;
-                this.Enabled = false;
             }
             this.Text = $"{name}\n{hp}/{maxHp}\n{cd}";
         }
@@ -478,6 +526,7 @@ namespace AN4126068_practice_5_2
     {
         public string name = "Myrtle";
         private Game game;
+        private Form1 form;
         public int hp = 1565;
         public int maxHp = 1565;
         public int atk = 520;
@@ -486,20 +535,49 @@ namespace AN4126068_practice_5_2
         public int cd = 22;
         private Timer cdTimer;
 
-        public Myrtle(Game game)
+        public Myrtle(Game game, Form1 form)
         {
             this.game = game;
+            this.form = form;
             this.AutoSize = false;
             this.Size = new Size(50, 50);
             this.Text = $"{name}\n{hp}/{maxHp}\n{cd}";
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.Font = new Font("Arial", 5);
+            this.Click += Myrtle_Click;
+            this.MouseDown += Myrtle_MouseDown;
+            this.MouseHover += Myrtle_MouseHover;
+            this.MouseLeave += Myrtle_MouseLeave;
             // CD
-            this.Enabled = false;
             cdTimer = new Timer();
             cdTimer.Interval = 1000;  // 設定1秒觸發一次
             cdTimer.Tick += CdTimer_Tick;
             cdTimer.Start();  // 開始計時
+        }
+
+        private void Myrtle_MouseLeave(object sender, EventArgs e)
+        {
+            form.updateInfo("");
+        }
+
+        private void Myrtle_MouseHover(object sender, EventArgs e)
+        {
+            form.updateInfo($"HP: {this.hp}, ATK: {this.atk}, DEF: {this.def}, Cost: {cost}, CD: {this.cd}");
+        }
+
+        private void Myrtle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.Dispose();
+                form.MyrtleBack();
+            }
+        }
+
+        private void Myrtle_Click(object sender, EventArgs e)
+        {
+            if (this.BackColor != Color.Green) { return; }
+            skill();
         }
 
 
@@ -521,24 +599,27 @@ namespace AN4126068_practice_5_2
             if (cd == 0)
             {
                 this.BackColor = Color.Green;
-                this.Enabled = true;
             }
             else
             {
                 this.BackColor = Color.LightGray;
-                this.Enabled = false;
             }
             this.Text = $"{name}\n{hp}/{maxHp}\n{cd}";
         }
         private void skill()
         {
             game.money += 14;
+            form.updateView();
+            cd = 22;
+            cdTimer.Start();
+            UpdateDisplay();
         }
     }
 
     public class Melantha : Label
     {
         public string name = "Melantha";
+        private Form1 form;
         public int hp = 2745;
         public int maxHp = 2745;
         public int atk = 738;
@@ -547,21 +628,50 @@ namespace AN4126068_practice_5_2
         public int cd = 40;
         private Timer cdTimer;
 
-        public Melantha()
+        public Melantha(Form1 form)
         {
             this.AutoSize = false;
             this.Size = new Size(50, 50);
             this.Text = $"{name}\n{hp}/{maxHp}\n{cd}";
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.Font = new Font("Arial", 5);
-
+            this.Click += Melantha_Click;
+            this.MouseDown += Melantha_MouseDown;
+            this.MouseHover += Melantha_MouseHover;
+            this.MouseLeave += Melantha_MouseLeave;
             // CD
-            this.Enabled = false;
             cdTimer = new Timer();
             cdTimer.Interval = 1000;  // 設定1秒觸發一次
             cdTimer.Tick += CdTimer_Tick;
             cdTimer.Start();  // 開始計時
+            this.form = form;
         }
+
+        private void Melantha_MouseLeave(object sender, EventArgs e)
+        {
+            form.updateInfo("");
+        }
+
+        private void Melantha_MouseHover(object sneder, EventArgs e)
+        {
+            form.updateInfo($"HP: {this.hp}, ATK: {this.atk}, DEF: {this.def}, Cost: {cost}, CD: {this.cd}");
+        }
+
+        private void Melantha_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.Dispose();
+                form.MelanthaBack();
+            }
+        }
+
+        private void Melantha_Click(object sender, EventArgs e)
+        {
+            if (this.BackColor != Color.Green) { return; }
+            skill();
+        }
+
         private void CdTimer_Tick(object sender, EventArgs e)
         {
             if (cd > 0)
@@ -574,22 +684,43 @@ namespace AN4126068_practice_5_2
                 cdTimer.Stop();  // 冷卻時間到達 0，停止計時器
             }
         }
+
         private void UpdateDisplay()
         {
             if (cd == 0)
             {
                 this.BackColor = Color.Green;
-                this.Enabled = true;
             }
             else
             {
                 this.BackColor = Color.LightGray;
-                this.Enabled = false;
             }
             this.Text = $"{name}\n{hp}/{maxHp}\n{cd}";
         }
         private void skill()
         {
+            this.atk *= 2;
+            UpdateDisplay(); // 更新顯示
+
+            Timer timer = new Timer();
+            timer.Interval = 1000; // 1秒後恢復攻擊力
+
+            timer.Tick += (s, e) =>
+            {
+                // 恢復攻擊力
+                this.atk /= 2;
+                UpdateDisplay();
+
+                // 停止並釋放定時器
+                timer.Stop();
+                timer.Dispose();
+            };
+
+            timer.Start();
+
+            cd = 40;
+            cdTimer.Start();
+            UpdateDisplay();
         }
     }
 
@@ -597,12 +728,14 @@ namespace AN4126068_practice_5_2
     {
         TableLayoutPanel battleField;
         Game game;
-        public int hp = 15000;
+        Form1 form;
+        private Rectangle enemyBounds;
+        public int hp = 100;
         public int atk = 600;
         public int def = 300;
         public int cd = 5;
         private Timer moveTimer;
-        private int speed = 2;
+        private int speed = 1;
         Label enemy;
 
         public Opponent(TableLayoutPanel battleField, Game game)
@@ -610,6 +743,7 @@ namespace AN4126068_practice_5_2
             this.BackColor = Color.Red;
             this.game = game;
             this.battleField = battleField;
+            this.form = (Form1)battleField.FindForm();
         }
 
         public void StopMoving()
@@ -631,10 +765,11 @@ namespace AN4126068_practice_5_2
         }
         private Control HitObstacle(Label enemy)
         {
-            // This is important!!!!!
             Point enemyLocationInBattleField = battleField.PointToClient(enemy.Parent.PointToScreen(enemy.Location));
-            Rectangle enemyBounds = new Rectangle(enemyLocationInBattleField.X, enemyLocationInBattleField.Y, enemy.Width, enemy.Height);
+
+            this.enemyBounds = new Rectangle(enemyLocationInBattleField.X, enemyLocationInBattleField.Y, enemy.Width, enemy.Height);
             // Rectangle enemyBounds = new Rectangle(enemy.Location.X, enemy.Location.Y, enemy.Width, enemy.Height);
+            //Rectangle enemyBounds = enemy.Bounds;
             foreach (Control control in battleField.Controls)
             {
                 if (control is PictureBox || control is Label)  // 只檢查 PictureBox 或 Label
@@ -660,7 +795,7 @@ namespace AN4126068_practice_5_2
             if (moveTimer == null)
             {// 創建一個定時器，每 50 毫秒觸發一次
                 moveTimer = new Timer();
-                moveTimer.Interval = 50;
+                moveTimer.Interval = 250;
                 moveTimer.Tick += (s, e) => MoveEnemyStep(enemy);  // 使用 Lambda 來傳遞 enemy
                 moveTimer.Start();
             }
@@ -674,35 +809,6 @@ namespace AN4126068_practice_5_2
         private void MoveEnemyStep(Label enemy)
         {
             this.enemy = enemy;
-            // 檢查是否已超出視窗邊界
-            if (this.enemy.Left + this.enemy.Width >= this.Parent.ClientSize.Width)
-            {
-                // 停止移動並關閉定時器
-                moveTimer.Stop();
-                this.enemy.Dispose();
-                game.heart--;
-                game.opponent_attack(this);
-                Form1 form = (Form1)battleField.FindForm();
-                form.updateView();
-                return;
-            }
-
-            //Point enemyLocationInBattleField = battleField.PointToClient(enemy.Parent.PointToScreen(enemy.Location));
-
-            //using (Graphics g = battleField.CreateGraphics())
-            //{
-            //    // 清除之前的矩形
-
-            //    // 計算敵人的矩形
-            //    Rectangle enemyBounds = new Rectangle(enemyLocationInBattleField.X, enemyLocationInBattleField.Y, enemy.Width, enemy.Height);
-            //    g.DrawRectangle(Pens.Green, enemyBounds);
-
-            //    // 繪製障礙物的矩形
-            //    foreach (Rectangle obstacle in Game.obstacles)
-            //    {
-            //        g.DrawRectangle(Pens.Red, obstacle);
-            //    }
-            //}
 
             // 如果检测到障碍物
             Control target = HitObstacle(enemy);
@@ -712,6 +818,17 @@ namespace AN4126068_practice_5_2
                 moveTimer.Stop();
                 StartAttackingTarget(target);
                 //return;
+            }
+            else if (target != null && target.BackColor == Color.Blue)
+            {
+                moveTimer.Stop();
+                moveTimer.Dispose();
+                this.enemy.Dispose();
+                game.heart--;
+                MessageBox.Show("You lose 1 heart");
+                game.opponent_attack(game.opponent);
+                form.updateView();
+                return;
             }
 
             enemy.Left += speed;
@@ -744,7 +861,12 @@ namespace AN4126068_practice_5_2
                         attackTimer.Stop();
                         attackTimer.Dispose();
                         enemy.Dispose();
-                        this.hp = 15000;
+                        game.enemyCount--;
+                        if (game.enemyCount <= 0)
+                        {
+                            game.end();
+                            form.updateView();
+                        }
                     }
                     if (cardigan.hp <= 0)
                     {
@@ -775,7 +897,13 @@ namespace AN4126068_practice_5_2
                         attackTimer.Stop();
                         attackTimer.Dispose();
                         enemy.Dispose();
-                        this.hp = 15000;
+                        game.enemyCount--;
+                        if (game.enemyCount <= 0)
+                        {
+                            game.end();
+                            form.updateView();
+
+                        }
                     }
                     if (myrtle.hp <= 0)
                     {
@@ -802,7 +930,12 @@ namespace AN4126068_practice_5_2
                         attackTimer.Stop();
                         attackTimer.Dispose();
                         enemy.Dispose();
-                        this.hp = 15000;
+                        game.enemyCount--;
+                        if (game.enemyCount <= 0)
+                        {
+                            game.end();
+                            form.updateView();
+                        }
                     }
                     if (melantha.hp <= 0)
                     {
@@ -813,8 +946,8 @@ namespace AN4126068_practice_5_2
                         form.MelanthaBack();
                         Game.obstacles.Remove(target);
                         attackTimer.Stop();
-                        attackTimer.Dispose();  // 停止攻击计时器
-                        StartMovingEnemy(this.enemy);  // 重新启动敌人移动
+                        attackTimer.Dispose();
+                        StartMovingEnemy(this.enemy);  // Move the enemy again
                         return;
                     }
                 }

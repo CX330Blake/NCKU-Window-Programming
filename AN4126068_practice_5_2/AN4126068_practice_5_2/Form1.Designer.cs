@@ -31,6 +31,8 @@
             this.startPanel = new System.Windows.Forms.Panel();
             this.chooseCharacterPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.moneyLabel = new System.Windows.Forms.Label();
+            this.heart = new System.Windows.Forms.Label();
             this.MelanthaLabel = new System.Windows.Forms.Label();
             this.MyrtleLabel = new System.Windows.Forms.Label();
             this.CardiganLabel = new System.Windows.Forms.Label();
@@ -41,8 +43,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.characterListBox = new System.Windows.Forms.ListBox();
             this.startButton = new System.Windows.Forms.Button();
-            this.heart = new System.Windows.Forms.Label();
-            this.moneyLabel = new System.Windows.Forms.Label();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.startPanel.SuspendLayout();
             this.chooseCharacterPanel.SuspendLayout();
             this.gamePanel.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // gamePanel
             // 
+            this.gamePanel.Controls.Add(this.infoLabel);
             this.gamePanel.Controls.Add(this.moneyLabel);
             this.gamePanel.Controls.Add(this.heart);
             this.gamePanel.Controls.Add(this.MelanthaLabel);
@@ -84,6 +86,26 @@
             this.gamePanel.Size = new System.Drawing.Size(801, 451);
             this.gamePanel.TabIndex = 5;
             this.gamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gamePanel_Paint);
+            // 
+            // moneyLabel
+            // 
+            this.moneyLabel.AutoSize = true;
+            this.moneyLabel.Location = new System.Drawing.Point(710, 304);
+            this.moneyLabel.Name = "moneyLabel";
+            this.moneyLabel.Size = new System.Drawing.Size(43, 18);
+            this.moneyLabel.TabIndex = 8;
+            this.moneyLabel.Text = "haert";
+            this.moneyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // heart
+            // 
+            this.heart.AutoSize = true;
+            this.heart.Location = new System.Drawing.Point(50, 304);
+            this.heart.Name = "heart";
+            this.heart.Size = new System.Drawing.Size(43, 18);
+            this.heart.TabIndex = 7;
+            this.heart.Text = "haert";
+            this.heart.Click += new System.EventHandler(this.label1_Click);
             // 
             // MelanthaLabel
             // 
@@ -104,6 +126,7 @@
             this.MyrtleLabel.TabIndex = 5;
             this.MyrtleLabel.Text = "Myrtle";
             this.MyrtleLabel.Visible = false;
+            this.MyrtleLabel.Click += new System.EventHandler(this.MyrtleLabel_Click);
             // 
             // CardiganLabel
             // 
@@ -193,25 +216,15 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // heart
+            // infoLabel
             // 
-            this.heart.AutoSize = true;
-            this.heart.Location = new System.Drawing.Point(50, 304);
-            this.heart.Name = "heart";
-            this.heart.Size = new System.Drawing.Size(43, 18);
-            this.heart.TabIndex = 7;
-            this.heart.Text = "haert";
-            this.heart.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // moneyLabel
-            // 
-            this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Location = new System.Drawing.Point(710, 304);
-            this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(43, 18);
-            this.moneyLabel.TabIndex = 8;
-            this.moneyLabel.Text = "haert";
-            this.moneyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Location = new System.Drawing.Point(243, 42);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(325, 18);
+            this.infoLabel.TabIndex = 9;
+            this.infoLabel.Text = "Hover On Character On Board Show The Info";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -246,6 +259,7 @@
         private System.Windows.Forms.Label CardiganLabel;
         private System.Windows.Forms.Label heart;
         private System.Windows.Forms.Label moneyLabel;
+        private System.Windows.Forms.Label infoLabel;
     }
 }
 
