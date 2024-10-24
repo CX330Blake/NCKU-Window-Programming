@@ -211,16 +211,6 @@ namespace AN4126068_practice_5_2
 
         private void battleField_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Pen obstaclePen = new Pen(Color.Red, 2);  // 使用紅色繪制障礙物邊界
-
-            // 遍歷每個障礙物，並在畫布上繪制其邊界
-            foreach (Rectangle obstacle in Game.obstacles)
-            {
-                g.DrawRectangle(obstaclePen, obstacle);
-            }
-
-            obstaclePen.Dispose();  // 釋放筆資源
         }
 
 
@@ -288,12 +278,13 @@ namespace AN4126068_practice_5_2
                 {
                     // 將角色添加到指定的行列位置
                     battleField.Controls.Add(characterBox, column, row);
-                    Game.obstacles.Add(new Rectangle(
-                        characterBox.Location.X,
-                        characterBox.Location.Y,
-                        characterBox.Width,
-                        characterBox.Height
-                    ));
+                    //Game.obstacles.Add(new Rectangle(
+                    //    characterBox.Location.X,
+                    //    characterBox.Location.Y,
+                    //    characterBox.Width,
+                    //    characterBox.Height
+                    //));
+                    Game.obstacles.Add(characterBox);
 
                 }
                 updateView();
@@ -341,7 +332,7 @@ namespace AN4126068_practice_5_2
         public int enemyCount = 5;
 
 
-        public static List<Rectangle> obstacles = new List<Rectangle>();
+        public static List<Control> obstacles = new List<Control>();
 
         public Game(TableLayoutPanel battleField, List<string> characters)
         {
@@ -666,7 +657,6 @@ namespace AN4126068_practice_5_2
 
         public void StartMovingEnemy(Label enemy)
         {
-            MessageBox.Show("TEST");
             if (moveTimer == null)
             {// 創建一個定時器，每 50 毫秒觸發一次
                 moveTimer = new Timer();
@@ -758,14 +748,19 @@ namespace AN4126068_practice_5_2
                     }
                     if (cardigan.hp <= 0)
                     {
+                        attackTimer.Stop();
                         cardigan.hp = 0;
-                        target.Visible = false;  // 隱藏目標，表示被擊敗
+                        target.Dispose();
 
                         Form1 form = (Form1)battleField.FindForm();
                         form.CardiganBack();
-                        Game.obstacles.Remove(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height));
-                        attackTimer.Stop();
-                        attackTimer.Dispose(); // 停止攻击计时器
+                        // Remove the obstacle
+                        //if (Game.obstacles.Contains(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height)))
+                        //{
+                        //    Game.obstacles.Remove(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height));
+                        //}
+                        Game.obstacles.Remove(target);
+
                         StartMovingEnemy(this.enemy);  // 重新启动敌人移动
                         return;
                     }
@@ -785,11 +780,12 @@ namespace AN4126068_practice_5_2
                     if (myrtle.hp <= 0)
                     {
                         myrtle.hp = 0;
-                        target.Visible = false;
+                        target.Dispose();
 
                         Form1 form = (Form1)battleField.FindForm();
                         form.MyrtleBack();
-                        Game.obstacles.Remove(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height));
+                        //Game.obstacles.Remove(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height));
+                        Game.obstacles.Remove(target);
                         attackTimer.Stop();
                         attackTimer.Dispose();  // 停止攻击计时器
                         StartMovingEnemy(this.enemy);  // 重新启动敌人移动
@@ -811,11 +807,11 @@ namespace AN4126068_practice_5_2
                     if (melantha.hp <= 0)
                     {
                         melantha.hp = 0;
-                        target.Visible = false;
+                        target.Dispose();
 
                         Form1 form = (Form1)battleField.FindForm();
                         form.MelanthaBack();
-                        Game.obstacles.Remove(new Rectangle(target.Location.X, target.Location.Y, target.Width, target.Height));
+                        Game.obstacles.Remove(target);
                         attackTimer.Stop();
                         attackTimer.Dispose();  // 停止攻击计时器
                         StartMovingEnemy(this.enemy);  // 重新启动敌人移动
