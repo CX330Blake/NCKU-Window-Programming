@@ -2,9 +2,9 @@ D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\bin\Debug\AN4126068_practice_5_2.exe
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\bin\Debug\AN4126068_practice_5_2.pdb
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.Form1.resources
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.Properties.Resources.resources
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.csproj.GenerateResource.cache
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.csproj.CoreCompileInputs.cache
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.exe
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.pdb
-D:\GitHub\NCKU-Window-Programming\AN4126068_practice_5_2\AN4126068_practice_5_2\obj\Debug\AN4126068_practice_5_2.Form1.resources
