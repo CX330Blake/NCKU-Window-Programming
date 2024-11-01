@@ -1,0 +1,11 @@
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\bin\Debug\HW4-1.exe.config
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\bin\Debug\HW4-1.exe
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\bin\Debug\HW4-1.pdb
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4-1.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4_1.chooseColor.resources
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4_1.Form1.resources
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4_1.Properties.Resources.resources
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4-1.csproj.GenerateResource.cache
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4-1.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4-1.exe
+D:\GitHub\NCKU-Window-Programming\HW4-1\HW4-1\obj\Debug\HW4-1.pdb

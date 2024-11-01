@@ -50,7 +50,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 0,
+=======
+<<<<<<< HEAD
+          "SelectedChildIndex": 3,
+=======
+          "SelectedChildIndex": 6,
+>>>>>>> 9b4f07c2a667bde416586366646dae340e5b3039
+>>>>>>> 8a0795c31078ef2f7c6ff689d972543c17fb0312
           "Children": [
             {
               "$type": "Document",
@@ -69,6 +77,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
@@ -91,7 +103,11 @@
               "RelativeDocumentMoniker": "HW3\\AddOrderControl.cs",
               "ToolTip": "D:\\GitHub\\NCKU-Window-Programming\\HW3\\HW3\\AddOrderControl.cs",
               "RelativeToolTip": "HW3\\AddOrderControl.cs",
+<<<<<<< HEAD
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwDAAAAANAAAAAAAAAA==",
+=======
               "ViewState": "AgIAAC4AAAAAAAAAAAAwwEQAAAAjAAAAAAAAAA==",
+>>>>>>> 9b4f07c2a667bde416586366646dae340e5b3039
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-06T07:36:21.325Z",
               "EditorCaption": ""
