@@ -1,0 +1,14 @@
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\bin\Debug\AN4126068_practice_6_1.exe.config
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\bin\Debug\AN4126068_practice_6_1.exe
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\bin\Debug\AN4126068_practice_6_1.pdb
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.EditForm.resources
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.Form1.resources
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.Properties.Resources.resources
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.csproj.GenerateResource.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN412606.C96ED03D.Up2Date
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.exe
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_1\AN4126068_practice_6_1\obj\Debug\AN4126068_practice_6_1.pdb
