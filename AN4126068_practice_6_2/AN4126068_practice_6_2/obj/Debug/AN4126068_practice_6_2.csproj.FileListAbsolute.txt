@@ -12,3 +12,6 @@ D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\bin\Debug\img\steve.png
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\bin\Debug\img\block3.png
 D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\bin\Debug\img\inventory.png
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_6_2\AN4126068_practice_6_2\obj\Debug\AN412606.B46BD03D.Up2Date

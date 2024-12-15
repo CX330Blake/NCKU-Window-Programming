@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.startPanel = new System.Windows.Forms.Panel();
+            this.pausePanel = new System.Windows.Forms.Panel();
+            this.oldGameButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.homeButton = new System.Windows.Forms.Button();
+            this.resumeButton = new System.Windows.Forms.Button();
             this.gamePanel = new System.Windows.Forms.Panel();
             this.selectPanel = new System.Windows.Forms.Panel();
             this.rockPicBox = new System.Windows.Forms.PictureBox();
@@ -37,9 +44,8 @@
             this.mudSelected = new System.Windows.Forms.PictureBox();
             this.rockSelected = new System.Windows.Forms.PictureBox();
             this.selectBar = new System.Windows.Forms.PictureBox();
-            this.startButton = new System.Windows.Forms.Button();
             this.startPanel.SuspendLayout();
-            this.gamePanel.SuspendLayout();
+            this.pausePanel.SuspendLayout();
             this.selectPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rockPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mudPicBox)).BeginInit();
@@ -50,18 +56,93 @@
             // 
             // startPanel
             // 
+            this.startPanel.Controls.Add(this.selectPanel);
+            this.startPanel.Controls.Add(this.pausePanel);
             this.startPanel.Controls.Add(this.gamePanel);
-            this.startPanel.Controls.Add(this.startButton);
             this.startPanel.Location = new System.Drawing.Point(-3, -4);
             this.startPanel.Name = "startPanel";
             this.startPanel.Size = new System.Drawing.Size(803, 456);
             this.startPanel.TabIndex = 0;
             this.startPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // pausePanel
+            // 
+            this.pausePanel.BackColor = System.Drawing.SystemColors.Control;
+            this.pausePanel.Controls.Add(this.oldGameButton);
+            this.pausePanel.Controls.Add(this.exitButton);
+            this.pausePanel.Controls.Add(this.startButton);
+            this.pausePanel.Controls.Add(this.saveButton);
+            this.pausePanel.Controls.Add(this.homeButton);
+            this.pausePanel.Controls.Add(this.resumeButton);
+            this.pausePanel.Location = new System.Drawing.Point(3, 3);
+            this.pausePanel.Name = "pausePanel";
+            this.pausePanel.Size = new System.Drawing.Size(803, 453);
+            this.pausePanel.TabIndex = 6;
+            this.pausePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // oldGameButton
+            // 
+            this.oldGameButton.Location = new System.Drawing.Point(270, 49);
+            this.oldGameButton.Name = "oldGameButton";
+            this.oldGameButton.Size = new System.Drawing.Size(265, 85);
+            this.oldGameButton.TabIndex = 5;
+            this.oldGameButton.Text = "START PREVIOUS";
+            this.oldGameButton.UseVisualStyleBackColor = true;
+            this.oldGameButton.Click += new System.EventHandler(this.oldGameButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(268, 315);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(265, 85);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "LEAVE";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(269, 184);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(265, 85);
+            this.startButton.TabIndex = 0;
+            this.startButton.Text = "START NEW";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(270, 316);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(264, 85);
+            this.saveButton.TabIndex = 3;
+            this.saveButton.Text = "SAVE";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // homeButton
+            // 
+            this.homeButton.Location = new System.Drawing.Point(269, 184);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(264, 85);
+            this.homeButton.TabIndex = 2;
+            this.homeButton.Text = "HOME";
+            this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
+            // resumeButton
+            // 
+            this.resumeButton.Location = new System.Drawing.Point(270, 49);
+            this.resumeButton.Name = "resumeButton";
+            this.resumeButton.Size = new System.Drawing.Size(264, 85);
+            this.resumeButton.TabIndex = 1;
+            this.resumeButton.Text = "RESUME";
+            this.resumeButton.UseVisualStyleBackColor = true;
+            this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
+            // 
             // gamePanel
             // 
             this.gamePanel.BackColor = System.Drawing.SystemColors.Control;
-            this.gamePanel.Controls.Add(this.selectPanel);
             this.gamePanel.Location = new System.Drawing.Point(3, 3);
             this.gamePanel.Name = "gamePanel";
             this.gamePanel.Size = new System.Drawing.Size(800, 453);
@@ -135,16 +216,6 @@
             this.selectBar.TabStop = false;
             this.selectBar.Click += new System.EventHandler(this.selectBar_Click);
             // 
-            // startButton
-            // 
-            this.startButton.Location = new System.Drawing.Point(249, 164);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(301, 136);
-            this.startButton.TabIndex = 0;
-            this.startButton.Text = "START";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -154,7 +225,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.startPanel.ResumeLayout(false);
-            this.gamePanel.ResumeLayout(false);
+            this.pausePanel.ResumeLayout(false);
             this.selectPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rockPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mudPicBox)).EndInit();
@@ -176,6 +247,12 @@
         private System.Windows.Forms.PictureBox rockSelected;
         private System.Windows.Forms.PictureBox selectBar;
         private System.Windows.Forms.Panel selectPanel;
+        private System.Windows.Forms.Panel pausePanel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button homeButton;
+        private System.Windows.Forms.Button resumeButton;
+        private System.Windows.Forms.Button oldGameButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

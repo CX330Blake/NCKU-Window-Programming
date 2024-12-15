@@ -1,0 +1,10 @@
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\bin\Debug\AN4126068_practice_8.exe.config
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\bin\Debug\AN4126068_practice_8.exe
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\bin\Debug\AN4126068_practice_8.pdb
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.csproj.AssemblyReference.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.Form1.resources
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.Properties.Resources.resources
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.csproj.GenerateResource.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.csproj.CoreCompileInputs.cache
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.exe
+D:\GitHub\NCKU-Window-Programming\AN4126068_practice_8\AN4126068_practice_8\obj\Debug\AN4126068_practice_8.pdb
